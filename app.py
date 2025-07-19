@@ -33,13 +33,15 @@ def load_data():
 
 df = load_data()
 
+
 # ----------------------------------------
 # 3) 수거약품목 카테고리 만들기
 # CSV에 들어있는 모든 수거약품목을 한 번에 모아서 중복 없이!
 # ----------------------------------------
 all_items = []
 # '수거약품목' 열의 값들을 쉼표로 나눠서 리스트에 넣기
-df['수거약품목'].dropna().apply(lambda x: all_items.extend([i.strip() for i in x.split(',')]))
+df['수거약품목'].dropna().apply(lambda x: 
+    all_items.extend([i.strip() for i in x.split(',')]))
 # set() 으로 중복 제거 후 다시 리스트로
 categories = list(sorted(set(all_items)))
 
